@@ -18,7 +18,7 @@ export class Ans2Component implements OnInit {
     console.log("lsttttttttt: "+JSON.stringify(this.ans2));
   }
   getAnswers(){
-    alert('asdfsadf '+this.ans2);
+    //alert('asdfsadf '+this.ans2);
     this.menu = new Menu(this.ans2.id,this.ans2.menuName,this.ans2.count,this.ans2.type,this.ans2.description);
     this.messageService.getQuestionsForStartup(this.menu).subscribe(
         res=>{

@@ -17,11 +17,11 @@ export class Ans1Component implements OnInit {
   constructor(private messageService:MessagesService) { }
 
   ngOnInit() {
-    alert("*********** "+JSON.stringify(this.ans));
+    //alert("*********** "+JSON.stringify(this.ans));
 
   }
   getAnswers(e){
-    alert(e.menuName);
+    //alert(e.menuName);
     // for(var i=0;i<this.ans.length;i++){
     //   alert('asdfsadf '+JSON.stringify(this.ans)+", "+this.ans[i].menuName);
     // }

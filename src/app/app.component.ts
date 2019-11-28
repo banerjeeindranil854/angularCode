@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
     this.messageService.getTraverseDetails().subscribe(
       res=>{
         this.menus=res;
-        alert('details: '+JSON.stringify(this.menus));
+        //alert('details: '+JSON.stringify(this.menus));
       }
     );
     // this.sendMessage();

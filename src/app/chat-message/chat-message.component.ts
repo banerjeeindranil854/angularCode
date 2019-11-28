@@ -38,7 +38,7 @@ export class ChatMessageComponent implements OnInit {
     // });
   }
   getAnswers(){
-    alert('asdfsadf '+this.message.menuName);
+    //alert('asdfsadf '+this.message.menuName);
     this.menu = new Menu(this.message.id,this.message.menuName,this.message.count,this.message.type,this.message.description);
     this.messageService.getQuestionsForStartup(this.menu).subscribe(
         res=>{
