@@ -4,6 +4,7 @@ import { User } from '../users/user.model';
 import { Thread } from '../threads/thread.model';
 import { Message } from '../messages/message.model';
 import { filter, map, scan, publishReplay, refCount } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const initialMessages: Message[] = [];
 
@@ -19,7 +20,11 @@ export class MessagesService {
 
   create: Subject<Message> = new Subject<Message>();
 
-  constructor() {
+
+
+  
+
+  constructor(private http:HttpClient) {
     this.messages = this.updates
       // Watch the updates and accumulate operations on the messages
       .pipe(
@@ -44,6 +49,21 @@ export class MessagesService {
       .subscribe(this.updates);
 
     this.newMessages.subscribe(this.create);
+  }
+
+  getQuestionsForStartup(menu:any):Observable<any>{
+    // alert('getQuestionsForStartup');
+    // let httpParams = new HttpParams().set('category', category).set('year', year);
+    let httpHeaders = new HttpHeaders()
+                         .set('Accept', 'application/json').set('Content-Type','application/json');
+    return this.http.post("http://localhost:8085/menus",menu,{headers: httpHeaders, responseType: 'json'});
+  }
+
+  getTraverseDetails():Observable<any>{
+    // let httpParams = new HttpParams().set('category', category).set('year', year);
+    let httpHeaders = new HttpHeaders()
+                         .set('Accept', 'application/json').set('Content-Type','application/json');
+    return this.http.get("http://localhost:8085/maxtraversed",{headers: httpHeaders, responseType: 'json'});
   }
 
   // Add message to stream

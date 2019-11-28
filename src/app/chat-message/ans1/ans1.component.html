@@ -1,0 +1,7 @@
+<div *ngFor="let message of ans" class="msg-sent">
+  <button type="button" class="btn btn-info" (click)="getAnswers(message)">{{message.menuName}}</button>
+  <!-- <p class="msg-sent">{{message.text}}</p> -->
+</div>
+<div *ngIf="ans2!=null">
+  <app-ans2   [ans2]="ans2"></app-ans2>
+</div>
